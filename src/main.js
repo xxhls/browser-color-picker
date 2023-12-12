@@ -2,8 +2,8 @@
  * @Project: browser-color-picker
  * @File: src/main.js
  * @Author: heyq <heyq020814@qq.com>
- * @Date: 2023-12月-周二 14:52:55
- * @Description: This is a piece of default text
+ * @Date: 2023-12-12 14:52:55
+ * @Description: This is a tool to pick color in browser.
  *
  * Copyright © 2023 heyq. All Rights Reserved.
  *
