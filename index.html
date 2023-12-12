@@ -15,10 +15,62 @@
 			width: 40px;
 			height: 40px;
 		}
+		
+		.container {
+			display: flex;
+			justify-content: space-between;
+			height: 100px;
+			width: 230px;
+			box-sizing: border-box;
+			background-color: #F7F8FA;
+			border: 1px solid #E5E6EB;
+			border-radius: 8px;
+			color: rgb(134, 144, 156);
+			/*align-items: center;*/
+			padding: 8px;
+			margin: 50px;
+		}
+		.color__show {
+			width: 84px;
+			/*height: 20px;*/
+			background-color: green;
+			margin-right: 20px;
+		}
+		.color__data {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+		}
+		.data--rgb {
+			line-height: 1.5;
+			cursor: pointer;
+		}
+		.data--hex {
+			line-height: 1.5;
+			cursor: pointer;
+		}
+		.btn--cont {
+			width: 100%;
+			/*border-width: 0;*/
+			border-radius: 4px;
+			border-color: #E5E6EB;
+			cursor: pointer;
+		}
 	</style>
 </head>
 <body>
 	<div id="app">
+		<div class="container" style="display: none">
+			<div class="color__show"></div>
+			<div class="color__data">
+				<div class="data--rgb">RGB: <span style="color: black">30 31 34</span></div>
+				<div class="data--hex">HEX: <span style="color: black">1E 1F 22</span></div>
+				<button class="btn--cont">continue</button>
+			</div>
+		</div>
+		<label>
+			<input type="color" id="color" />
+		</label>
 		<ul>
 			<li class="color-block" style="background-color: red;"></li>
 			<li class="color-block" style="background-color: orange;"></li>
