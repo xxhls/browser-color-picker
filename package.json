@@ -1,15 +1,20 @@
 {
   "name": "browser-color-picker",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.1.0",
+  "description": "pick color in browser",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vite",
+    "build": "vite build"
   },
   "keywords": [],
-  "author": "",
+  "author": "heyq <heyq020814@qq.com>",
   "license": "ISC",
   "devDependencies": {
+    "@types/node": "^20.10.4",
+    "ts-node": "^10.9.2",
     "vite": "^5.0.7"
   }
 }
