@@ -27,7 +27,7 @@
 			const filePath = path.resolve(__dirname, "../browser-color-picker.js");
 			
 			fs.writeFile(filePath, content, (err) => {
-				if (err) throw err; // 如果发生错误则抛出异常
+				if (err) throw err;
 			});
 		}
 	});
