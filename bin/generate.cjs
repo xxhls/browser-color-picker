@@ -22,6 +22,7 @@
 				`// @match        ${config.match}\n` +
 				`// @icon         ${config.icon}\n` +
 				`// @grant        ${config.grant}\n` +
+				`// @license      ${config.license}\n` +
 				`// ==/UserScript==\n\n` + code;
 			
 			const filePath = path.resolve(__dirname, "../browser-color-picker.js");

@@ -1,6 +1,6 @@
 {
   "name": "browser-color-picker",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "pick color in browser",
   "main": "index.js",
   "type": "module",
@@ -11,7 +11,7 @@
   },
   "keywords": [],
   "author": "heyq <heyq020814@qq.com>",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@types/node": "^20.10.4",
     "ts-node": "^10.9.2",
