@@ -2,14 +2,6 @@ import Popup from "@src/components/popup";
 
 (() => {
 	
-	const mountPopup = (hex: string, handler: (dom: HTMLElement) => void) => {
-		Popup(hex, handler);
-	};
-	
-	const destroyPopup = (dom: HTMLElement) => {
-		dom.remove();
-	};
-	
 	const handler = async (e: MouseEvent) => {
 		// 拦截默认右键菜单
 		e.preventDefault();
@@ -19,8 +11,8 @@ import Popup from "@src/components/popup";
 		try {
 			const result = (await eyeDropper.open()) as {sRGBHex: string};
 			const color_hex = result.sRGBHex;
-			mountPopup(color_hex, (dom: HTMLElement) => {
-				destroyPopup(dom);
+			// 弹出层
+			Popup(color_hex, () => {
 				deactivateColorPicker();
 			});
 		} catch (e) {
@@ -28,6 +20,7 @@ import Popup from "@src/components/popup";
 		}
 	};
 	
+	// 激活插件
 	const activateColorPicker = () => {
 		if (window.hasOwnProperty("EyeDropper")) {
 			document.addEventListener("contextmenu", handler, false);
@@ -39,6 +32,7 @@ import Popup from "@src/components/popup";
 		}
 	}
 	
+	// 注销插件
 	const deactivateColorPicker = () => {
 		document.removeEventListener("contextmenu", handler, false);
 		console.log("被注销了!");

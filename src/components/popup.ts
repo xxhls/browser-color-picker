@@ -13,7 +13,7 @@ const applyStyle = (dom: HTMLElement, style: Partial<CSSStyleDeclaration>) => {
 	}
 };
 
-const Popup = (hex: string, handler: (dom: HTMLElement) => void) => {
+const Popup = (hex: string, handler: () => void) => {
 	const container = document.createElement("div");
 	const containerStyle: Partial<CSSStyleDeclaration> = {
 		width: "200px",
@@ -48,7 +48,8 @@ const Popup = (hex: string, handler: (dom: HTMLElement) => void) => {
 	const exit = document.createElement("button");
 	exit.innerText = "退出";
 	exit.addEventListener("click", () => {
-		handler(container);
+		container.remove();
+		handler();
 	});
 	container.appendChild(exit);
 	
