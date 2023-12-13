@@ -14,7 +14,7 @@ import Popup from "@src/components/popup";
 			// 弹出层
 			Popup(color_hex, () => {
 				deactivateColorPicker();
-			});
+			}, e.clientX, e.clientY);
 		} catch (e) {
 			console.log("取消本次拾取。");
 		}
