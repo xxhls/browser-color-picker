@@ -1,6 +1,14 @@
 import Popup from "@src/components/popup";
+import zh_CN from "@src/locale/zh-CN";
+import en from "@src/locale/en";
 
 (() => {
+	
+	const language = navigator.language;
+	let languagePack = en
+	if (language === "zh-CN") {
+		languagePack = zh_CN
+	}
 	
 	const handler = async (e: MouseEvent) => {
 		// 拦截默认右键菜单
@@ -16,7 +24,7 @@ import Popup from "@src/components/popup";
 				deactivateColorPicker();
 			}, e.clientX, e.clientY);
 		} catch (e) {
-			console.log("取消本次拾取。");
+			console.log(languagePack.cancel);
 		}
 	};
 	
@@ -24,10 +32,10 @@ import Popup from "@src/components/popup";
 	const activateColorPicker = () => {
 		if (window.hasOwnProperty("EyeDropper")) {
 			document.addEventListener("contextmenu", handler, false);
-			console.log("被激活了！");
+			console.log(languagePack.activate);
 			return "";
 		} else {
-			console.warn("对不起，当前浏览器版本过低，请升级最新版本。");
+			console.warn(languagePack.fail);
 			return ""
 		}
 	}
@@ -35,7 +43,7 @@ import Popup from "@src/components/popup";
 	// 注销插件
 	const deactivateColorPicker = () => {
 		document.removeEventListener("contextmenu", handler, false);
-		console.log("被注销了!");
+		console.log(languagePack.deactivate);
 		return "";
 	}
 	

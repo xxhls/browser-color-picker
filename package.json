@@ -1,6 +1,6 @@
 {
   "name": "browser-color-picker",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "pick color in browser",
   "main": "index.js",
   "type": "module",

@@ -6,6 +6,8 @@
  */
 
 import hexToRgb from "@src/utils/hexToRgb";
+import zh_CN from "@src/locale/zh-CN";
+import en from "@src/locale/en";
 
 const applyStyle = (dom: HTMLElement, style: Partial<CSSStyleDeclaration>) => {
 	for (const prop in style) {
@@ -16,6 +18,13 @@ const applyStyle = (dom: HTMLElement, style: Partial<CSSStyleDeclaration>) => {
 };
 
 const Popup = (hex: string, handler: () => void, X: number, Y: number) => {
+	
+	const language = navigator.language;
+	let languagePack = en
+	if (language === "zh-CN") {
+		languagePack = zh_CN
+	}
+	
 	const container = document.createElement("div");
 	const containerStyle: Partial<CSSStyleDeclaration> = {
 		width: "350px",
@@ -86,12 +95,12 @@ const Popup = (hex: string, handler: () => void, X: number, Y: number) => {
 		cursor: "pointer"
 	};
 	const copy_btn__hex = document.createElement("button");
-	copy_btn__hex.innerText = "点此复制十六进制颜色值";
+	copy_btn__hex.innerText = languagePack.copy_hex;
 	data.appendChild(copy_btn__hex)
 	applyStyle(copy_btn__hex, copy_btn_style);
 	copy_btn__hex.addEventListener("click", () => {
 		window.navigator.clipboard.writeText(hex.toUpperCase()).then(() => {
-			copy_btn__hex.innerText = "复制成功";
+			copy_btn__hex.innerText = languagePack.copy;
 			copy_btn__hex.style.backgroundColor = "#DAF0E4";
 			copy_btn__hex.style.color = "#18A058";
 		});
@@ -103,19 +112,19 @@ const Popup = (hex: string, handler: () => void, X: number, Y: number) => {
 	data.appendChild(data_rgb);
 	
 	const copy_btn__rgb = document.createElement("button");
-	copy_btn__rgb.innerText = "点此复制RGB颜色值";
+	copy_btn__rgb.innerText = languagePack.copy_rgb;
 	data.appendChild(copy_btn__rgb)
 	applyStyle(copy_btn__rgb, copy_btn_style);
 	copy_btn__rgb.addEventListener("click", () => {
 		window.navigator.clipboard.writeText(hexToRgb(hex)).then(() => {
-			copy_btn__rgb.innerText = "复制成功";
+			copy_btn__rgb.innerText = languagePack.copy;
 			copy_btn__rgb.style.backgroundColor = "#DAF0E4";
 			copy_btn__rgb.style.color = "#18A058";
 		});
 	});
 	
 	const exit = document.createElement("button");
-	exit.innerText = "关闭插件";
+	exit.innerText = languagePack.exit;
 	exit.addEventListener("click", () => {
 		container.remove();
 		handler();
