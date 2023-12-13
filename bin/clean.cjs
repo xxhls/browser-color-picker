@@ -21,5 +21,5 @@ const deleteFolder = (fs, path) => {
 (() => {
 	const path = require("path");
 	const fs = require("fs");
-	//deleteFolder(fs, path.resolve(__dirname, "../dist"));
+	deleteFolder(fs, path.resolve(__dirname, "../dist"));
 })();
