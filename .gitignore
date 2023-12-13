@@ -2,4 +2,4 @@
 node_modules
 dist
 
-browser-color-picker.js
+./browser-color-picker.js
