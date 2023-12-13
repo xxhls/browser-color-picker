@@ -5,7 +5,7 @@ generate:build
 	node bin/generate.cjs
 
 build:install
-	pnpm build
+	yarn build
 
 install:
-	pnpm install
+	yarn install
