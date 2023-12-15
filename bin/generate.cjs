@@ -9,9 +9,16 @@
 		if (err) throw err;
 		
 		for (let file of files) {
+			
 			const code = fs.readFileSync(`${folderPath}/${file}`, {
 				encoding: 'utf-8'
 			});
+			
+			const registerMenuText = () => {
+				return `GM_registerMenuCommand ("激活插件", () => {\n` +
+					`activateColorPicker()\n` +
+				`}, "h");\n\n`
+			}
 			
 			let content = `// ==UserScript==\n` +
 				`// @name         ${config.name}\n` +
@@ -23,7 +30,7 @@
 				`// @icon         ${config.icon}\n` +
 				`// @grant        ${config.grant}\n` +
 				`// @license      ${config.license}\n` +
-				`// ==/UserScript==\n\n` + code;
+				`// ==/UserScript==\n\n` + registerMenuText() + code;
 			
 			const filePath = path.resolve(__dirname, "../browser-color-picker.js");
 			

@@ -9,6 +9,6 @@ module.exports = {
 	author: pkgJson.author,
 	match: "*://*/*",
 	icon: "data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==",
-	grant: "none",
+	grant: "GM_registerMenuCommand",
 	license: pkgJson.license
 };
