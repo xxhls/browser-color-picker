@@ -16,7 +16,7 @@
 			
 			const registerMenuText = () => {
 				return `GM_registerMenuCommand ("激活插件", () => {\n` +
-					`activateColorPicker()\n` +
+					`    window.activateColorPicker()\n` +
 				`}, "h");\n\n`
 			}
 			
